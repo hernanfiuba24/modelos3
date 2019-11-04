@@ -1,0 +1,138 @@
+[
+    {
+        "id": "1",
+        "names": [
+            "galletitas dulces",
+            "golosinas",
+            "alfajores"
+        ]
+    },
+    {
+        "id": "2",
+        "names": [
+            "galletitas saladas"
+        ]
+    },
+    {
+        "id": "3",
+        "names": [
+            "miel",
+            "mermeladas",
+            "gelatinas",
+            "postres"
+        ]
+    },
+    {
+        "id": "4",
+        "names": [
+            "cereales",
+            "cacao",
+            "leche en povo"
+        ]
+    },
+    {
+        "id": "5",
+        "names": [
+            "cafe",
+            "te",
+            "azucar",
+            "enducorante"
+        ]
+    },
+    {
+        "id": "6",
+        "names": [
+            "yerba",
+            "mate"
+        ]
+    },
+    {
+        "id": "7",
+        "names": [
+            "salsa de tomate",
+            "pure"
+        ]
+    },
+    {
+        "id": "8",
+        "names": [
+            "fideos"
+        ]
+    },
+    {
+        "id": "9",
+        "names": [
+            "legumbres",
+            "especies",
+            "sopas"
+        ]
+    },
+    {
+        "id": "10",
+        "names": [
+            "jugos para diluir",
+            "jugos en sobre"
+        ]
+    },
+    {
+        "id": "11",
+        "names": [
+            "energizantes"
+        ]
+    },
+    {
+        "id": "12",
+        "names": [
+            "detergente",
+            "lavandina"
+        ]
+    },
+    {
+        "id": "13",
+        "names": [
+            "jabon en polvo"
+        ]
+    },
+    {
+        "id": "14",
+        "names": [
+            "suavizante"
+        ]
+    },
+    {
+        "id": "15",
+        "names": [
+            "multiuso",
+            "limpiador para baños"
+        ]
+    },
+    {
+        "id": "16",
+        "names": [
+            "limpiador para pisos",
+            "desodorantes",
+            "ceras"
+        ]
+    },
+    {
+        "id": "17",
+        "names": [
+            "repelente insectos"
+        ]
+    },
+    {
+        "id": "18",
+        "names": [
+            "guantes",
+            "autobrillos",
+            "escobas"
+        ]
+    },
+    {
+        "id": "19",
+        "names": [
+            "panios",
+            "bolsas"
+        ]
+    }
+]
