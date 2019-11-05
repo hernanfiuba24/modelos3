@@ -2,14 +2,20 @@ import pandas as pd
 import os
 from digraph import Digraph
 
+
 def main():
     graphName = "supermarket"
-    readGraph("files/hallways.json", {"id": str, "names": list})
-    df = readGraph("files/hallwaysDigraph.json", {"id": str, "adyacents": list})
-    G = Digraph(df)
+    df_hallways = readGraph("files/hallways.json", {"id": str, "names": list})
+    df_adyacents = readGraph("files/hallwaysDigraph.json",
+                             {"id": str, "adyacents": list})
+    df_adyacents = addColumnToDataFragment(df_adyacents, "name", df_hallways["names"].values)
+    G = Digraph(df_adyacents, False)
     G.write(graphName)
     G.draw(graphName)
 
+def addColumnToDataFragment(df, name, column):
+    df[name] = column
+    return df
 
 def readGraph(file_name, dTypes):
     # more options can be specified also
@@ -17,11 +23,6 @@ def readGraph(file_name, dTypes):
         basePath = os.path.dirname(os.path.abspath(__file__))
         df = pd.read_json(basePath + '/' + file_name,
                           orient='hallways', dtype=dTypes)
-        """
-        df_ids = df.filter(items=["id"])
-        print(file_name + " registers " + str(df_ids.size))
-        print(df_ids)
-        """
         return df
 
 
