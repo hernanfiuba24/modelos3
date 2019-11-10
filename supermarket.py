@@ -16,11 +16,12 @@ def main():
     sources = [0, 1]
     target = 13
     grasp = Grasp(sources, G)
-
-    print("the best path to go " + str(target) + " is " + str(grasp.bestPathTo(target)[1]) + ". The cost is : " + str(grasp.bestPathTo(target)[0]))
+    bestPath = grasp.bestPathTo(target)[1]
+    bestCost = grasp.bestPathTo(target)[0]
+    print("the best path to go " + str(target) + " is " + str(bestPath) + ". The cost is : " + str(bestCost))
 
     G.write(graphName)
-    G.draw(graphName)
+    G.draw(graphName, bestPath)
 
 def addColumnToDataFragment(df, name, column):
     df[name] = column
