@@ -1,6 +1,6 @@
 import pygraphviz as pgv
 
-class Digraph:
+class Graph:
     def __init__(self, df, isDirected):
         self.G = pgv.AGraph(directed=isDirected)
         self.df = df
