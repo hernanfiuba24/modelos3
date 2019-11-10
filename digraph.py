@@ -1,6 +1,5 @@
 import pygraphviz as pgv
 
-
 class Digraph:
     def __init__(self, df, isDirected):
         self.G = pgv.AGraph(directed=isDirected)
@@ -39,6 +38,7 @@ class Digraph:
         self.G.draw("output/" + file_name + ".png")
 
     def neighbors_iter(self, node, funcion, args):
-		for edge in self.G.out_edges_iter(str(node)):
-			args = funcion(edge, args)
-		return args
+        for nodeAdyacent in self.G.neighbors_iter(node):
+            edge = [node, nodeAdyacent]
+            args = funcion(edge, args)
+        return args
