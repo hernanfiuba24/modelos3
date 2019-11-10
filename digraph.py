@@ -6,10 +6,11 @@ class Digraph:
         self.G = pgv.AGraph(directed=isDirected)
         self.df = df
         for row in df.itertuples(index=False):
-            label = '/'.join(row.name)
-            self.G.add_node(row.id, label=label)
+            #label = '/'.join(row.name)
+            label = "P-" + row.id
+            self.G.add_node(row.id)
             for node in row.adyacents:
-                self.G.add_edge(row.id, node)
+                self.G.add_edge(int(row.id), node)
 
     def write(self, file_name):
         self.G.write("output/" + file_name + ".dot")
@@ -22,7 +23,7 @@ class Digraph:
         #self.G.graph_attr['splines'] = True
         #self.G.graph_attr['wight'] = 2400
         #self.G.graph_attr['hight'] = 1600
-        #self.G.graph_attr['overlap'] = False
+        self.G.graph_attr['nodesep'] = 1.5
 
         self.G.node_attr['style'] = 'rounded'
         self.G.node_attr['shape'] = 'rect'
@@ -36,3 +37,8 @@ class Digraph:
         #self.G.edge_attr['arrowtype'] = 10
         self.G.layout()
         self.G.draw("output/" + file_name + ".png")
+
+    def neighbors_iter(self, node, funcion, args):
+		for edge in self.G.out_edges_iter(str(node)):
+			args = funcion(edge, args)
+		return args
