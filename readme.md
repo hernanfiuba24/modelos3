@@ -40,8 +40,8 @@ python src/supermarket.py $PWD/files/hallways.json $PWD/files/hallwaysGraph.json
 python src/main.py
 ```
 * Request
-target : point to visit
-name : image name
+    - target : point to visit
+    - name : image name
 ```
 http://localhost:5000/superRoute?target=3&name=supermarket
 ```
