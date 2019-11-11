@@ -28,6 +28,6 @@ python test/testGrasp.py
 first param : Hallways names
 second param : Hallways graph relationes
 ```
-python src/supermarket.py $PWD/files/hallways.json $PWD/files/hallwaysGraph.json 
+python src/supermarket.py $PWD/files/hallways.json $PWD/files/hallwaysGraph.json 3 supermarket 
 ```
 In **output** path will be the image with the best path

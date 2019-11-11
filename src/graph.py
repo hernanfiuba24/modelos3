@@ -14,7 +14,7 @@ class Graph:
                 self.G.add_edge(int(row.id), node)
 
     def write(self, file_name):
-        self.G.write("../output/" + file_name + ".dot")
+        self.G.write("./output/" + file_name + ".dot")
 
     def draw(self, file_name):
         self.G.graph_attr['label'] = file_name
@@ -37,9 +37,9 @@ class Graph:
         # self.G.edge_attr['arrowsize'] = 10.0
         # self.G.edge_attr['arrowtype'] = 10
         self.G.layout()
-        self.G.draw("output/" + file_name + ".png")
+        self.G.draw("./output/" + file_name + ".png")
 
-    def draw(self, file_name, bestPath):
+    def draw(self, file_name, bestPath, bestPathToCash):
         self.G.graph_attr['label'] = file_name
         self.G.graph_attr['imagescale'] = True
         self.G.graph_attr['splines'] = 'line'
@@ -50,16 +50,28 @@ class Graph:
         self.G.node_attr['penwidth'] = 0.1
 
         self.G.edge_attr['color'] = 'black'
-        self.G.edge_attr['penwidth'] = 2
+        self.G.edge_attr['penwidth'] = 0.1
 
         for node in bestPath:
             node = self.G.get_node(node)
             node.attr['color'] = 'red'
-            node.attr['penwidth'] = 0.5
+            node.attr['penwidth'] = 2
         for i in range(len(bestPath)-1):
             edge = self.G.get_edge(bestPath[i], bestPath[i+1])
             edge.attr['color'] = 'red'
+            edge.attr['penwidth'] = 2
 
+        for node in bestPathToCash:
+            node = self.G.get_node(node)
+            if int(node) not in bestPath:
+                node.attr['color'] = 'green'
+                node.attr['penwidth'] = 2
+        for i in range(len(bestPathToCash)-1):
+            edge = self.G.get_edge(bestPathToCash[i], bestPathToCash[i+1])
+            if not (bestPathToCash[i] in bestPath and bestPathToCash[i+1] in bestPath) :
+                edge.attr['color'] = 'green'
+                edge.attr['penwidth'] = 2
+            
         self.G.layout()
         self.G.draw("./output/" + file_name + ".png")
 

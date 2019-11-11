@@ -5,7 +5,6 @@ import os
 
 
 def main():
-    graphName = "supermarket"
     hallwaysPathName = sys.argv[1]
     hallwaysGraphPathName = sys.argv[2]
     df_hallways = readGraph(hallwaysPathName, {"id": str, "names": list})
@@ -16,16 +15,27 @@ def main():
     G = Graph(df_adyacents, False)
 
     # find the path by metaheuristic method (GRASP)
-    sources = [0, 1]
-    target = 15
+    sources = [0, 1] # doors
+    target = int(sys.argv[3])
     grasp = Grasp(sources, G)
     bestPath = grasp.bestPathTo(target)[1]
     bestCost = grasp.bestPathTo(target)[0]
     print("the best path to go " + str(target) + " is " +
           str(bestPath) + ". The cost is : " + str(bestCost))
+    
 
-    # G.write(graphName)
-    G.draw(graphName, bestPath)
+    sourcesTocash = [21, 22] # cashbox
+    targetToCash = int(target)
+    graspToCash = Grasp(sourcesTocash, G)
+    bestPathToCash = graspToCash.bestPathTo(targetToCash)[1]
+    bestCostToCash = graspToCash.bestPathTo(targetToCash)[0]
+    print("the best path to go " + str(targetToCash) + " is " +
+          str(bestPathToCash) + ". The cost is : " + str(bestCostToCash))
+
+
+    graphName = sys.argv[4]
+    G.write(graphName)
+    G.draw(graphName, bestPath, bestPathToCash)
 
 
 def addColumnToDataFragment(df, name, column):
