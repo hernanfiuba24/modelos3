@@ -37,6 +37,38 @@ def main():
     G.write(graphName)
     G.draw(graphName, bestPath, bestPathToCash)
 
+def superMarketRoute(target, graphName):
+    basePath = os.path.abspath(os.path.join(__file__, '..', '..', 'files'))
+    hallwaysPathName = basePath + '/hallways.json'
+    hallwaysGraphPathName = basePath + '/hallwaysGraph.json'
+    df_hallways = readGraph(hallwaysPathName, {"id": str, "names": list})
+    df_adyacents = readGraph(hallwaysGraphPathName,
+                             {"id": str, "adyacents": list})
+    df_adyacents = addColumnToDataFragment(
+        df_adyacents, "name", df_hallways["names"].values)
+    G = Graph(df_adyacents, False)
+
+    # find the path by metaheuristic method (GRASP)
+    sources = [0, 1] # doors
+
+    grasp = Grasp(sources, G)
+    bestPath = grasp.bestPathTo(target)[1]
+    bestCost = grasp.bestPathTo(target)[0]
+    print("the best path to go " + str(target) + " is " +
+          str(bestPath) + ". The cost is : " + str(bestCost))
+    
+
+    sourcesTocash = [21, 22] # cashbox
+    targetToCash = int(target)
+    graspToCash = Grasp(sourcesTocash, G)
+    bestPathToCash = graspToCash.bestPathTo(targetToCash)[1]
+    bestCostToCash = graspToCash.bestPathTo(targetToCash)[0]
+    print("the best path to go " + str(targetToCash) + " is " +
+          str(bestPathToCash) + ". The cost is : " + str(bestCostToCash))
+
+    G.write(graphName)
+    G.draw(graphName, bestPath, bestPathToCash)
+
 
 def addColumnToDataFragment(df, name, column):
     df[name] = column
