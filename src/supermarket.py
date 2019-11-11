@@ -37,7 +37,7 @@ def main():
     G.write(graphName)
     G.draw(graphName, bestPath, bestPathToCash)
 
-def superMarketRoute(target, hallwaysName, hallwaysGraphName, sourcesTocash):
+def superMarketRoute(targets, hallwaysName, hallwaysGraphName, sourcesTocash):
     basePath = os.path.abspath(os.path.join(__file__, '..', '..', 'files'))
     hallwaysPathName = basePath + '/' + hallwaysName + '.json'
     hallwaysGraphPathName = basePath + '/' + hallwaysGraphName + '.json'
@@ -50,13 +50,19 @@ def superMarketRoute(target, hallwaysName, hallwaysGraphName, sourcesTocash):
 
     # find the path by metaheuristic method (GRASP)
     sources = [0, 1] # doors
-
-    grasp = Grasp(sources, G)
-    bestPath = grasp.bestPathTo(target)[1]
-    bestCost = grasp.bestPathTo(target)[0]
+    bestPath = []
+    bestCost = 0
+    for target in targets:
+        grasp = Grasp(sources, G)
+        bestPathPartial = grasp.bestPathTo(target)[1]
+        bestCostPartial = grasp.bestPathTo(target)[0]
+        for node in reversed(bestPathPartial):
+            if int(node) not in bestPath:
+                bestPath.append(int(node))
+        bestCost += bestCostPartial
+        sources = [target]
     print("the best path to go " + str(target) + " is " +
-          str(bestPath) + ". The cost is : " + str(bestCost))
-    
+        str(bestPath) + ". The cost is : " + str(bestCost))
     targetToCash = int(target)
     graspToCash = Grasp(sourcesTocash, G)
     bestPathToCash = graspToCash.bestPathTo(targetToCash)[1]

@@ -11,15 +11,15 @@ def hello_world():
 
 @app.route('/superRoute')
 def superRoute():
-    target = request.args.get('target')
-    name = request.args.get('name')
+    targets = map(int, request.args.get('target').split(","))
+    name = request.args.get('superName')
     graphName = name + 'Graph'
-    sourcesTocash = []
+    sourcesToCash = []
     if name == 'hallways':
-        sourcesTocash = [21, 22] # cashbox
+        sourcesToCash = [21, 22] # cashbox
     if name == 'hallwaysSuperX':
-        sourcesTocash = [5, 6] # cashbox
-    superMarketRoute(int(target), name, graphName, sourcesTocash)
+        sourcesToCash = [5, 6] # cashbox
+    superMarketRoute(targets, name, graphName, sourcesToCash)
     basePath = os.path.abspath(os.path.join(__file__, '..', '..', 'output'))
     return send_file(basePath + '/' + name + '.png', mimetype='image/png')
 

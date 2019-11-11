@@ -45,10 +45,11 @@ Get image of hallwaysSuper
 http://localhost:5000/hallwaysSuper/hallways
 ```
 Get superRoute
-    - target : point to visit
+    - target : points to visit (separate by colon ',')
     - name : image name
 ```
-http://localhost:5000/superRoute?target=3&name=supermarket
+http://localhost:5000/superRoute?target=3,4&superName=hallways
+http://localhost:5000/superRoute?target=19,20,21&superName=hallwaysSuperX
 ```
 
 
