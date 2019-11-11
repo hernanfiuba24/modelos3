@@ -40,6 +40,11 @@ python src/supermarket.py $PWD/files/hallways.json $PWD/files/hallwaysGraph.json
 python src/main.py
 ```
 * Request
+Get image of hallwaysSuper
+```
+http://localhost:5000/hallwaysSuper/hallways
+```
+Get superRoute
     - target : point to visit
     - name : image name
 ```
