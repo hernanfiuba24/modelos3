@@ -13,7 +13,7 @@ class Graph:
                 self.G.add_edge(int(row.id), node)
 
     def write(self, file_name):
-        self.G.write("output/" + file_name + ".dot")
+        self.G.write("../output/" + file_name + ".dot")
 
     def draw(self, file_name):
         self.G.graph_attr['label'] = file_name
@@ -60,7 +60,7 @@ class Graph:
             edge.attr['color'] = 'red'
 
         self.G.layout()
-        self.G.draw("output/" + file_name + ".png")
+        self.G.draw("./output/" + file_name + ".png")
 
     def neighbors_iter(self, node, funcion, args):
         for nodeAdyacent in self.G.neighbors_iter(node):

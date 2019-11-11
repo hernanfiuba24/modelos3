@@ -1,7 +1,6 @@
 from dijkstra import *
 import sys
 
-
 class Grasp:
     def __init__(self, sources, graph):
         self.sources = sources

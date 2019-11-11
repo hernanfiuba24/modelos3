@@ -1,7 +1,8 @@
 from readGraph import *
-from digraph import *
+from graph import *
 from heapq import *
 import sys
+
 
 class Dijkstra:
     def __init__(self, graph, source):
@@ -12,7 +13,7 @@ class Dijkstra:
         self.vertexes_covered = 0
         self.heap = []
         self.size_heap = 0
-        self.path = [ -1 for i in range(N)]
+        self.path = [-1 for i in range(N)]
         self.path[source] = source
         for i in range(len(self.distances)):
             heappush(self.heap, (self.distances[i], i))
@@ -24,13 +25,14 @@ class Dijkstra:
                 self.size_heap -= 1
                 min_vertex = min_vertex_tupla[1]
                 min_vertex_distances = min_vertex_tupla[0]
-                self.distances = graph.neighbors_iter(min_vertex, self.__distancesFunction, self.distances)
+                self.distances = graph.neighbors_iter(
+                    min_vertex, self.__distancesFunction, self.distances)
                 self.vertexes_covered += 1
                 self.heap = self.__redefineHeap(self.distances)
                 isTheFinal = self.vertexes_covered == N
             except Exception:
                 print("Heap empty")
-                isTheFinal = True;
+                isTheFinal = True
 
     def __distancesFunction(self, edge, distances):
         if (distances[int(edge[1])] > distances[int(edge[0])] + 1):

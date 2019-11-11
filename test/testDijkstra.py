@@ -1,14 +1,16 @@
-from dijkstra import *
-from graph import *
-from readGraph import *
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(__file__, '..',  '..', 'src')))
 from testUtils import *
-
+from readGraph import *
+from graph import *
+from dijkstra import *
 
 def run():
-    df_adyacents = readGraph("files/hallwaysGraph.json",
+    df_adyacents = readGraph("../files/hallwaysGraph.json",
                              {"id": str, "adyacents": list})
     graph = Graph(df_adyacents, False)
-    graph.draw("test")
+    graph.draw("test", [])
     source = 0
     dijkstra = Dijkstra(graph, source)
 
@@ -75,5 +77,6 @@ def run():
         19), [19, 10, 0])
     test("The best path from 0 to 20 is: [20, 19, 10, 0]", dijkstra.getPathTo(
         20), [20, 19, 10, 0])
+
 
 run()
