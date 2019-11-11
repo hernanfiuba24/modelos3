@@ -1,0 +1,187 @@
+[
+    {
+        "id": 0,
+        "names": [
+            "entrada izquierda"
+        ]
+    },
+    {
+        "id": 1,
+        "names": [
+            "entrada derecha"
+        ]
+    },
+    {
+        "id": 5,
+        "names": [
+            "caja1"
+        ]
+    },
+    {
+        "id": 6,
+        "names": [
+            "caja2"
+        ]
+    },
+    {
+        "id": 10,
+        "names": [
+            "galletitas dulces",
+            "golosinas",
+            "alfajores"
+        ]
+    },
+    {
+        "id": 11,
+        "names": [
+            "galletitas saladas"
+        ]
+    },
+    {
+        "id": 12,
+        "names": [
+            "miel",
+            "mermeladas",
+            "gelatinas",
+            "postres"
+        ]
+    },
+    {
+        "id": 13,
+        "names": [
+            "cereales",
+            "cacao",
+            "leche en povo"
+        ]
+    },
+    {
+        "id": 14,
+        "names": [
+            "cafe",
+            "te",
+            "azucar",
+            "enducorante"
+        ]
+    },
+    {
+        "id": 15,
+        "names": [
+            "yerba",
+            "mate"
+        ]
+    },
+    {
+        "id": 16,
+        "names": [
+            "salsa de tomate",
+            "pure"
+        ]
+    },
+    {
+        "id": 17,
+        "names": [
+            "fideos"
+        ]
+    },
+    {
+        "id": 18,
+        "names": [
+            "legumbres",
+            "especies",
+            "sopas"
+        ]
+    },
+    {
+        "id": 19,
+        "names": [
+            "jugos para diluir",
+            "jugos en sobre"
+        ]
+    },
+    {
+        "id": 20,
+        "names": [
+            "energizantes"
+        ]
+    },
+    {
+        "id": 21,
+        "names": [
+            "detergente",
+            "lavandina"
+        ]
+    },
+    {
+        "id": 22,
+        "names": [
+            "jabon en polvo"
+        ]
+    },
+    {
+        "id": 23,
+        "names": [
+            "suavizante"
+        ]
+    },
+    {
+        "id": 24,
+        "names": [
+            "multiuso",
+            "limpiador para baños"
+        ]
+    },
+    {
+        "id": 25,
+        "names": [
+            "limpiador para pisos",
+            "desodorantes",
+            "ceras"
+        ]
+    },
+    {
+        "id": 26,
+        "names": [
+            "repelente insectos"
+        ]
+    },
+    {
+        "id": 27,
+        "names": [
+            "guantes",
+            "autobrillos",
+            "escobas"
+        ]
+    },
+    {
+        "id": 28,
+        "names": [
+            "panios",
+            "bolsas"
+        ]
+    },
+    {
+        "id": 29,
+        "names": [
+            "aguas sin gas",
+            "aguas con gas"
+        ]
+    },
+    {
+        "id": 30,
+        "names": [
+            "gaseosas"
+        ]
+    },
+    {
+        "id": 31,
+        "names": [
+            "cervezas"
+        ]
+    },
+    {
+        "id": 32,
+        "names": [
+            "licores"
+        ]
+    }
+]

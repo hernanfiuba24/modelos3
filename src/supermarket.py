@@ -37,7 +37,7 @@ def main():
     G.write(graphName)
     G.draw(graphName, bestPath, bestPathToCash)
 
-def superMarketRoute(target, hallwaysName, hallwaysGraphName):
+def superMarketRoute(target, hallwaysName, hallwaysGraphName, sourcesTocash):
     basePath = os.path.abspath(os.path.join(__file__, '..', '..', 'files'))
     hallwaysPathName = basePath + '/' + hallwaysName + '.json'
     hallwaysGraphPathName = basePath + '/' + hallwaysGraphName + '.json'
@@ -57,13 +57,11 @@ def superMarketRoute(target, hallwaysName, hallwaysGraphName):
     print("the best path to go " + str(target) + " is " +
           str(bestPath) + ". The cost is : " + str(bestCost))
     
-
-    sourcesTocash = [21, 22] # cashbox
     targetToCash = int(target)
     graspToCash = Grasp(sourcesTocash, G)
     bestPathToCash = graspToCash.bestPathTo(targetToCash)[1]
     bestCostToCash = graspToCash.bestPathTo(targetToCash)[0]
-    print("the best path to go " + str(targetToCash) + " is " +
+    print("the best path to go to the cash is " +
           str(bestPathToCash) + ". The cost is : " + str(bestCostToCash))
 
     G.write(hallwaysName)

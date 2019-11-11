@@ -14,8 +14,12 @@ def superRoute():
     target = request.args.get('target')
     name = request.args.get('name')
     graphName = name + 'Graph'
-
-    superMarketRoute(int(target), name, graphName)
+    sourcesTocash = []
+    if name == 'hallways':
+        sourcesTocash = [21, 22] # cashbox
+    if name == 'hallwaysSuperX':
+        sourcesTocash = [5, 6] # cashbox
+    superMarketRoute(int(target), name, graphName, sourcesTocash)
     basePath = os.path.abspath(os.path.join(__file__, '..', '..', 'output'))
     return send_file(basePath + '/' + name + '.png', mimetype='image/png')
 

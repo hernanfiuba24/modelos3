@@ -8,15 +8,18 @@ class Dijkstra:
     def __init__(self, graph, source):
         N = graph.G.number_of_nodes()
         self.source = source
-        self.distances = [sys.maxint for i in range(N)]
+        self.distances = {}
+        self.path = {}
+        for node in graph.G.nodes_iter():
+            self.distances[int(node)] = sys.maxint
+            self.path[int(node)] = -1
         self.distances[source] = 0
         self.vertexes_covered = 0
         self.heap = []
         self.size_heap = 0
-        self.path = [-1 for i in range(N)]
         self.path[source] = source
-        for i in range(len(self.distances)):
-            heappush(self.heap, (self.distances[i], i))
+        for key in self.distances.keys():
+            heappush(self.heap, (self.distances[key], key))
             self.size_heap += 1
         isTheFinal = self.vertexes_covered == N
         while (not isTheFinal):
