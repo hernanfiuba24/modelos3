@@ -6,8 +6,9 @@ class Graph:
         self.G = pgv.AGraph(directed=isDirected)
         self.df = df
         for row in df.itertuples(index=False):
-            # label = '/'.join(row.name)
-            label = "P-" + row.id
+            #label = '/'.join(row.name)
+            #label = "P-" + row.id
+            #self.G.add_node(row.id, label=label)
             self.G.add_node(row.id)
             for node in row.adyacents:
                 self.G.add_edge(int(row.id), node)

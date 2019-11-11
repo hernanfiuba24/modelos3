@@ -146,5 +146,18 @@
             "panios",
             "bolsas"
         ]
+    },
+    {
+        "id": 21,
+        "names": [
+            "caja1"
+        ]
+    },
+    {
+        "id": 22,
+        "names": [
+            "caja2"
+        ]
     }
+
 ]

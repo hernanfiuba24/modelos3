@@ -10,7 +10,7 @@ def run():
     df_adyacents = readGraph("../files/hallwaysGraph.json",
                              {"id": str, "adyacents": list})
     graph = Graph(df_adyacents, False)
-    graph.draw("test", [])
+    
     source = 0
     dijkstra = Dijkstra(graph, source)
 
