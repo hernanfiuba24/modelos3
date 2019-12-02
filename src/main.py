@@ -1,7 +1,11 @@
 from flask import Flask
 from flask import request
+from flask import Response
 from flask import send_file
+from flask import jsonify
+from flask import make_response
 from supermarket import * 
+import json
 app = Flask(__name__)
 
 
@@ -28,6 +32,18 @@ def hallways(hallwaysName):
     hallwaysSuper(hallwaysName, hallwaysName + 'Graph')
     basePath = os.path.abspath(os.path.join(__file__, '..', '..', 'output'))
     return send_file(basePath + '/' + hallwaysName + '.png', mimetype='image/png')
+
+@app.route('/hallwaysData/<path:hallwaysName>')
+def hallwaysData(hallwaysName):
+    basePath = os.path.abspath(os.path.join(__file__, '..', '..', 'files'))
+    path = basePath + '/' + hallwaysName + '.json'
+    print(path)
+    with open(path) as json_file:
+        data = json.load(json_file)
+        response = make_response(jsonify(data))
+        response.headers['access-control-allow-origin'] = '*'
+        return response
+    return {}
 
 if __name__ == '__main__':
     app.run()
