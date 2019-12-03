@@ -2,13 +2,13 @@
     {
         "id": 0,
         "names": [
-            "entrada 0"
+            "primera entrada"
         ]
     },
     {
         "id": 1,
         "names": [
-            "entrada 1"
+            "segunda entrada"
         ]
     },
     {
@@ -150,13 +150,13 @@
     {
         "id": 21,
         "names": [
-            "caja1"
+            "primera caja"
         ]
     },
     {
         "id": 22,
         "names": [
-            "caja2"
+            "segunda caja"
         ]
     }
 
